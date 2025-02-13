@@ -13,7 +13,7 @@ import java.util.List;
 public class Employer extends AbstractEntity {
 
     @NotBlank
-    @Size(max = 20, message = "Location length is too long")
+    @Size(min = 5, max = 20)
     public String location;
 
     @OneToMany
@@ -22,13 +22,19 @@ public class Employer extends AbstractEntity {
 
     public Employer() {}
 
-    public @NotBlank @Size(max = 20, message = "Location length is too long") String getLocation() {
+    public @NotBlank @Size(min = 5, max = 20) String getLocation() {
         return location;
     }
 
-    public void setLocation(@NotBlank @Size(max = 20, message = "Location length is too long") String location) {
+    public void setLocation(@NotBlank @Size(min = 5, max = 20) String location) {
         this.location = location;
     }
 
+    public List<Job> getJobs() {
+        return jobs;
+    }
 
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 }
